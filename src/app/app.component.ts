@@ -23,38 +23,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  // animations: [
-  //   trigger('expandCollapseDetails', [
-  //     state(
-  //       'void',
-  //       style({
-  //         height: '0px',
-  //         overflow: 'hidden',
-  //       })
-  //     ),
-  //     //element being added into DOM.
-  //     transition(':enter', [
-  //       animate(
-  //         '500ms ease-in-out',
-  //         style({
-  //           height: '*',
-  //           overflow: 'hidden',
-  //         })
-  //       ),
-  //     ]),
-  //     //element being removed from DOM.
-  //     transition(':leave', [
-  //       animate(
-  //         '500ms ease-in-out',
-  //         style({
-  //           height: '0px',
-  //           overflow: 'hidden',
-  //         })
-  //       ),
-  //     ]),
-  //   ]),
-  // ],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;

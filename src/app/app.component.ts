@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { animate, state, style, transition, trigger } from "@angular/animations";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 //import { UploadService } from './upload.service';
@@ -11,57 +17,55 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 //   lastname: string;
 //   email: string;
 //   password: string;
-  
+
 // }
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger("expandCollapseDetails", [
-      state(
-        "void",
-        style({
-          height: "0px",
-          overflow: "hidden"
-        })
-      ),
-      //element being added into DOM.
-      transition(":enter", [
-        animate(
-          "500ms ease-in-out",
-          style({
-            height: "*",
-            overflow: "hidden"
-          })
-        )
-      ]),
-      //element being removed from DOM.
-      transition(":leave", [
-        animate(
-          "500ms ease-in-out",
-          style({
-            height: "0px",
-            overflow: "hidden"
-          })
-        )
-      ])
-    ])
-  ]
+  // animations: [
+  //   trigger('expandCollapseDetails', [
+  //     state(
+  //       'void',
+  //       style({
+  //         height: '0px',
+  //         overflow: 'hidden',
+  //       })
+  //     ),
+  //     //element being added into DOM.
+  //     transition(':enter', [
+  //       animate(
+  //         '500ms ease-in-out',
+  //         style({
+  //           height: '*',
+  //           overflow: 'hidden',
+  //         })
+  //       ),
+  //     ]),
+  //     //element being removed from DOM.
+  //     transition(':leave', [
+  //       animate(
+  //         '500ms ease-in-out',
+  //         style({
+  //           height: '0px',
+  //           overflow: 'hidden',
+  //         })
+  //       ),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class AppComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
-showMessage: string;
-gender: any = 'FEMALE'
-title = 'reactiveForms';
+  showMessage: string;
+  gender: any = 'FEMALE';
+  title = 'reactiveForms';
   reactiveForm: FormGroup;
-// user: IUser;
-  constructor() {
+  // user: IUser;
+  constructor() {}
 
-  }
-
-  ngOnInit(){
+  ngOnInit() {
     this.reactiveForm = new FormGroup({
       firstname: new FormControl(null, [
         Validators.required,
@@ -70,7 +74,7 @@ title = 'reactiveForms';
       ]),
       mobile: new FormControl(null, [
         Validators.required,
-        Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")
+        Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
       ]),
       // gender: new FormControl(null, [
       //   Validators.required
@@ -78,24 +82,24 @@ title = 'reactiveForms';
       lastname: new FormControl(null, [
         Validators.required,
         Validators.maxLength(25),
-        Validators.minLength(1)
+        Validators.minLength(1),
       ]),
       email: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
         // Validators.maxLength(250),
         Validators.email,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
       ]),
       qualification: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       category: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       currentcompany: new FormControl(null, [
         Validators.required,
@@ -115,22 +119,22 @@ title = 'reactiveForms';
       skills: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       currentdesignation: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       yearsofexp: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(6)
+        Validators.maxLength(6),
       ]),
       noticeperiod: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       expectedsalary: new FormControl(null, [
         Validators.required,
@@ -140,30 +144,30 @@ title = 'reactiveForms';
       prjs: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
       project: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25)
+        Validators.maxLength(25),
       ]),
-      gender: new FormControl(null, Validators.required)
+      // gender: new FormControl(null, 
+      //   [Validators.required]),
     });
   }
 
-  
   onSubmit2() {
     console.log(this.reactiveForm);
     // alert(this.invalidMessage);
   }
-  
-  add(){ 
-    let row = document.createElement('div');   
-    row.className = 'row'; 
-    row.innerHTML = `<input type="text" placeholder="Project">`; 
-    document.querySelector('.showInputField').appendChild(row); 
-  } 
-  
+
+  add() {
+    let row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = `<input type="text" placeholder="Project">`;
+    document.querySelector('.showInputField').appendChild(row);
+  }
+
   onFileChange(event: any) {
     const file = (event.target as HTMLInputElement).files?.[0];
     this.reactiveForm.patchValue({
@@ -179,24 +183,21 @@ title = 'reactiveForms';
   uploadBlankResume() {
     this.fileInput.nativeElement.click();
   }
-  
+
   uploadImage() {
     this.fileInput.nativeElement.click();
   }
-            onSubmit() {
-              console.log(this.reactiveForm);
-            
-              if (this.reactiveForm.valid) {
-                this.showMessage = 'Form is Valid';
-              } else {
-                this.showMessage = 'Form is Invalid';
-              }
-            }
-            
-            here(){
-              console.log('here');
-              
-            }
-          } 
+  onSubmit() {
+    console.log(this.reactiveForm);
 
-        
+    if (this.reactiveForm.valid) {
+      this.showMessage = 'Form is Valid';
+    } else {
+      this.showMessage = 'Form is Invalid';
+    }
+  }
+
+  here() {
+    console.log('here');
+  }
+}

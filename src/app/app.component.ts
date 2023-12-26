@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+// import { animate, state, style, transition, trigger } from '@angular/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 //import { UploadService } from './upload.service';
 
@@ -23,7 +17,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
@@ -120,7 +114,7 @@ export class AppComponent implements OnInit {
         Validators.minLength(1),
         Validators.maxLength(25),
       ]),
-      // gender: new FormControl(null, 
+      // gender: new FormControl(null,
       //   [Validators.required]),
     });
   }

@@ -1,18 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import { animate, state, style, transition, trigger } from '@angular/animations';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
-//import { UploadService } from './upload.service';
-
-// interface IUser {
-//   firstname: string;
-//   lastname: string;
-//   email: string;
-//   password: string;
-
-// }
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -25,11 +12,11 @@ export class AppComponent implements OnInit {
   gender: any = 'FEMALE';
   title = 'reactiveForms';
   reactiveForm: FormGroup;
-  // user: IUser;
-  constructor() {}
+  values: string[];
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.reactiveForm = new FormGroup({
+    this.reactiveForm = this.formBuilder.group({
       firstname: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
@@ -39,9 +26,9 @@ export class AppComponent implements OnInit {
         Validators.required,
         Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
       ]),
-      // gender: new FormControl(null, [
-      //   Validators.required
-      // ]),
+      gender: new FormControl(null, [
+        Validators.required
+      ]),
       lastname: new FormControl(null, [
         Validators.required,
         Validators.maxLength(25),
@@ -107,21 +94,38 @@ export class AppComponent implements OnInit {
       prjs: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25),
+        Validators.maxLength(255),
       ]),
       project: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(25),
+        Validators.maxLength(255),
       ]),
       // gender: new FormControl(null,
       //   [Validators.required]),
     });
-  }
 
-  onSubmit2() {
-    console.log(this.reactiveForm);
-    // alert(this.invalidMessage);
+    // patching values in the form using patchValue()
+	this.reactiveForm.patchValue({
+			firstname: 'Mahesh',
+      mobile: 9860259111,
+      lastname: "Tendulkar",
+      email: "sachin@gmail.com",
+      gender: "male",
+      qualification: "BE",
+      category: "Tech",
+      currentcompany: "Mgen",
+      currentloc: "Banglore",
+      currentsalary: "3LPA",
+      skills: "Front end",
+      currentdesignation: "Front end Developer",
+      yearsofexp: "2 years",
+      noticeperiod: "3 months",
+      expectedsalary: "5LPA",
+      prjs: "Department Management system",
+      project: "Department Management system"
+		});
+
   }
 
   add() {
@@ -160,7 +164,10 @@ export class AppComponent implements OnInit {
     }
   }
 
-  here() {
-    console.log('here');
-  }
-}
+	
+	}
+
+  // get userName() {
+	// 	return this.reactiveForm.patchValue('firstame');
+	// }
+  

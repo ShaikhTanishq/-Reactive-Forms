@@ -60,10 +60,10 @@
           </div>
        
           <div class="genderBtn">
-            <input type="radio" id="radioMale" name="radioFGender" value="male">
+            <input type="radio" id="radioMale" name="gender" value="male" formControlName="gender">
             <label for="radioMale"><br>Male</label>
         
-            <input type="radio" id="radioFemale" name="radioFGender" value="female">
+            <input type="radio" id="radioFemale" name="gender" value="female" formControlName="gender">
             <label for="radioFemale"><br>Female</label>
       
         </div>
@@ -438,5 +438,7 @@
   </ng-template> -->
   <button class="draft-btn" name="draftbtn">Save Draft</button>
 
+
+				<!-- <button type="button" (click)="patchUserValues()">Patch User values</button> -->
 </form>
 

@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
       yearsofexp: new FormControl(null, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(6),
+        Validators.maxLength(7),
       ]),
       noticeperiod: new FormControl(null, [
         Validators.required,
